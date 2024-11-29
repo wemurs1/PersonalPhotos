@@ -1,10 +1,4 @@
-﻿using System.IO;
-using System.Threading.Tasks;
-using Core.Interfaces;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Hosting;
-
-namespace Core.Services;
+﻿namespace Core.Services;
 
 public class LocalFileStorage : IFileStorage
 {
@@ -15,7 +9,7 @@ public class LocalFileStorage : IFileStorage
         _env = env;
     }
 
-    public async Task StoreFile(FormFile file, string key)
+    public async Task StoreFile(IFormFile file, string key)
     {
         const string rootPath = "PhotoStore";
 

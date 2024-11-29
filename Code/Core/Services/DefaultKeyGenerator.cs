@@ -1,6 +1,4 @@
-﻿using Core.Interfaces;
-
-namespace Core.Services;
+﻿namespace Core.Services;
 
 public class DefaultKeyGenerator : IKeyGenerator
 {

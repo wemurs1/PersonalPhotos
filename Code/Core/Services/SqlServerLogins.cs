@@ -1,11 +1,8 @@
-﻿using System;
-using System.Data;
-using System.Data.SqlClient;
-using System.Threading.Tasks;
-using Core.Interfaces;
+﻿using System.Data;
 using Core.Models;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Data.SqlClient;
 
 namespace Core.Services;
 
@@ -17,7 +14,7 @@ public class SqlServerLogins : ILogins
     public SqlServerLogins(IConfiguration configuration, ILogger<SqlServerLogins> logger
     )
     {
-        _connectionString = configuration.GetConnectionString("Default");
+        _connectionString = configuration.GetConnectionString("Default")!;
         _logger = logger;
     }
 
@@ -56,7 +53,7 @@ public class SqlServerLogins : ILogins
             await connection.OpenAsync();
             var reader = await command.ExecuteReaderAsync();
 
-            User result = null;
+            User result = null!;
             if (await reader.ReadAsync())
                 result = new User
                 {

@@ -1,15 +1,13 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-namespace PersonalPhotos.Models;
+﻿namespace PersonalPhotos.Models;
 
 public class LoginViewModel
 {
     [Required(ErrorMessage = "Please provide the Email address")]
     [EmailAddress]
-    public string Email { get; set; }
+    public string Email { get; set; } = default!;
 
     [Required(ErrorMessage = "Please provide password")]
-    public string Password { get; set; }
+    public string Password { get; set; } = default!;
 
-    public string ReturnUrl { get; set; }
+    public string ReturnUrl { get; set; } = default!;
 }
