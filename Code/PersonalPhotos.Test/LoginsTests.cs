@@ -1,3 +1,5 @@
+using PersonalPhotos.Models;
+
 namespace PersonalPhotos.Test;
 
 public class LoginsTests
@@ -20,5 +22,13 @@ public class LoginsTests
         // Assert.IsAssignableFrom<IActionResult>(result);
         Assert.NotNull(result);
         Assert.Equal("Login", result.ViewName, ignoreCase: true);
+    }
+
+    [Fact]
+    public async Task Login_GivenModelStateInvalid_ReturnLoginView()
+    {
+        _loginsController.ModelState.AddModelError("Test", "Test");
+        var result = await _loginsController.Login(Mock.Of<LoginViewModel>()) as ViewResult;
+        Assert.Equal("Login", result!.ViewName, ignoreCase: true);
     }
 }
