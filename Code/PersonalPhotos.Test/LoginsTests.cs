@@ -1,5 +1,3 @@
-using PersonalPhotos.Models;
-
 namespace PersonalPhotos.Test;
 
 public class LoginsTests
