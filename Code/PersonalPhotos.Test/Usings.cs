@@ -1,4 +1,5 @@
 global using Core.Interfaces;
+global using Core.Models;
 global using Microsoft.AspNetCore.Http;
 global using Microsoft.AspNetCore.Mvc;
 global using Moq;
